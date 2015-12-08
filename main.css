@@ -1,0 +1,283 @@
+#container {
+  padding: 0px; }
+
+#nodeActionBar {
+  background: #D2D2D2;
+  padding: 0px; }
+  #nodeActionBar button, #nodeActionBar a {
+    background: none;
+    padding: 8px;
+    font-size: 22px;
+    border: none;
+    color: #333;
+    margin: 0px;
+    top: 0px;
+    cursor: pointer; }
+  #nodeActionBar a:hover {
+    text-decoration: none; }
+  #nodeActionBar #btBack {
+    background: #333;
+    color: white; }
+  #nodeActionBar .leftButtons {
+    margin: 0px;
+    padding: 0px;
+    float: left; }
+  #nodeActionBar .rightButtons {
+    margin: 0px;
+    padding: 0px;
+    float: right; }
+
+.clear {
+  clear: both; }
+
+.breadcrumb {
+  padding-bottom: 0px;
+  margin-bottom: 0px; }
+
+#newChildButton {
+  position: fixed;
+  right: 0px;
+  bottom: 100px; }
+  #newChildButton button {
+    background: #D94A38;
+    color: white;
+    border-radius: 0px;
+    padding: 10px 20px;
+    position: absolute;
+    bottom: 0px;
+    right: 0px; }
+  #newChildButton .dropdown-menu {
+    position: relative;
+    right: 0px;
+    bottom: 40px; }
+
+#search-form input {
+  width: 100%;
+  padding: 5px; }
+
+.contentType-Video .controlls {
+  width: 100%;
+  height: 10%;
+  text-align: center; }
+
+.contentType-Video input {
+  display: block;
+  width: 200px;
+  margin: 0px auto;
+  padding: 10px; }
+
+.contentType-Video iframe {
+  display: blcok;
+  width: 100%;
+  height: 80%; }
+
+.contentType-Spotify .controlls {
+  width: 100%;
+  height: 20%;
+  text-align: center; }
+
+.contentType-Spotify input {
+  display: block;
+  width: 200px;
+  margin: 0px auto;
+  padding: 10px; }
+
+.contentType-Spotify iframe {
+  display: blcok;
+  width: 100%;
+  height: 600px; }
+
+.contentType-Folder {
+  /*    .node-folder {
+        background: #2C86B5;
+        border-color: #2B6FB2;
+        color: #F9F9F9;
+        background: #797979;
+        border-color: #1D1D1D;
+        color: #F9F9F9;
+    }
+    .node-text {
+        background: white;
+        border-color: #bbb;
+        color: #222;
+    }
+    .node-code {
+        background: #F4E700;
+        color: rgb(8, 7, 7);
+        border-color: #968300;
+    }*/ }
+  .contentType-Folder .node {
+    float: left;
+    padding: 10px;
+    margin: 5px;
+    position: relative;
+    border: 1px solid;
+    background: white;
+    border-color: #bbb;
+    color: #222;
+    text-align: center; }
+    .contentType-Folder .node .fa {
+      display: block;
+      margin-bottom: 4px; }
+    .contentType-Folder .node .node-child-count {
+      font-size: 10px;
+      right: 0px; }
+      .contentType-Folder .node .node-child-count:before {
+        content: "("; }
+      .contentType-Folder .node .node-child-count:after {
+        content: ")"; }
+  .contentType-Folder .node-spotify {
+    background: #38b238; }
+  .contentType-Folder .node-textcard h1 {
+    margin: 0px;
+    padding: 0px;
+    font-size: 16px;
+    font-weight: bold;
+    border-bottom: 1px solid #bbb;
+    margin-bottom: 5px; }
+  .contentType-Folder .node-textcard p {
+    margin: 0px;
+    padding: 0px;
+    font-size: 12px; }
+  .contentType-Folder .node-textcard ol {
+    margin-right: 20px; }
+  .contentType-Folder .node-link .node-edit-button {
+    display: block;
+    font-size: 11px; }
+  .contentType-Folder .node-link a:hover {
+    text-decoration: none; }
+
+.contentType-Text textarea {
+  height: 90%;
+  width: 100%; }
+
+.contentType-Code #code-editor {
+  width: 100%;
+  height: 400px; }
+
+.contentType-Code .language-type {
+  padding: 5px; }
+
+.contentType-Messages .msgContainer {
+  background: #f5f5f5;
+  width: 100%;
+  height: 70%;
+  overflow: scroll; }
+
+.contentType-Messages .message {
+  padding: 10px; }
+  .contentType-Messages .message > span {
+    display: block;
+    width: 100%;
+    color: #aaa; }
+    .contentType-Messages .message > span b, .contentType-Messages .message > span strong {
+      padding-right: 10px;
+      font-weight: normal; }
+    .contentType-Messages .message > span i {
+      padding-right: 5px; }
+  .contentType-Messages .message > a {
+    color: #333; }
+  .contentType-Messages .message p {
+    display: inline-block;
+    padding: 10px;
+    border: 1px solid #ccc;
+    background: white; }
+
+.contentType-Messages .msgInput {
+  width: 100%;
+  position: fixed;
+  bottom: 0px;
+  padding: 10px; }
+
+.contentType-Keyboard .keyboard-item {
+  width: 200px;
+  float: left;
+  display: table; }
+
+.chord-view > div {
+  float: left;
+  padding: 20px;
+  border: 1px solid #ccc;
+  background: #efefef;
+  box-sizing: content-box;
+  text-align: center;
+  height: 80px; }
+  .chord-view > div > span {
+    display: block;
+    font-size: 12px; }
+
+.chord-view h1 {
+  font-size: 16px;
+  margin: 0px;
+  padding: 0px;
+  font-weight: bold; }
+
+body {
+  background: #eee; }
+
+#nodeView {
+  overflow: hidden;
+  position: relative;
+  /*    textarea {
+        width: 100%;
+        height: 400px;
+    }*/ }
+  #nodeView .node-title {
+    color: #111;
+    display: block;
+    font-size: 28px;
+    padding-left: 5px;
+    background: #f0f0f0;
+    border-bottom: 1px solid #bbb;
+    border-top: 1px solid #bbb; }
+    #nodeView .node-title input {
+      padding: 5px;
+      border: none;
+      width: 80%;
+      background: none; }
+  #nodeView .node-content {
+    width: 100%;
+    overflow: scroll; }
+  #nodeView .node-content .display {
+    padding: 10px;
+    background: white;
+    border: 1px solid #e0e0e0;
+    margin: 5px;
+    width: 100%; }
+
+#btNewNode {
+  position: fixed;
+  bottom: 10px;
+  right: 10px;
+  border: 1px solid #D94A38;
+  background: #D94A38;
+  font-size: 24px;
+  padding: 10px 20px;
+  color: white; }
+
+.slider-menu {
+  width: 100px;
+  padding: 10px;
+  background: #f2f2f2;
+  border: 1px solid #e6e6e6;
+  position: absolute;
+  right: 0px;
+  transition: right 0.3s; }
+
+.slider-menu-hidden {
+  right: -100px; }
+
+#nodeProperties button {
+  width: 100%; }
+
+#nodeIconView, #abstractSelectorView {
+  margin-top: 10px; }
+  #nodeIconView span, #abstractSelectorView span {
+    margin: 4px;
+    padding: 10px;
+    border: 1px solid #777;
+    cursor: pointer; }
+  #nodeIconView span:hover, #abstractSelectorView span:hover {
+    color: white;
+    background: #333;
+    border: 1px solid black; }
