@@ -162,7 +162,8 @@
   background: #f5f5f5;
   width: 100%;
   height: 70%;
-  overflow: scroll; }
+  overflow: scroll;
+  padding-bottom: 40px; }
 
 .contentType-Messages .message {
   padding: 10px; }
@@ -212,12 +213,31 @@
   padding: 0px;
   font-weight: bold; }
 
+html {
+  height: 100%; }
+
+body {
+  min-height: 100%;
+  height: 100%; }
+
+#root {
+  height: 100%; }
+
 body {
   background: #eee; }
 
 #nodeView {
   overflow: hidden;
   position: relative;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  /* align items in Main Axis */
+  align-items: stretch;
+  /* align items in Cross Axis */
+  align-content: stretch;
+  /* Extra space in Cross Axis */
   /*    textarea {
         width: 100%;
         height: 400px;
@@ -235,6 +255,9 @@ body {
       border: none;
       width: 80%;
       background: none; }
+  #nodeView > h1 {
+    margin: 0;
+    padding: 10px; }
   #nodeView .node-content {
     width: 100%;
     overflow: scroll; }

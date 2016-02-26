@@ -6,6 +6,7 @@ import ContentType from './ContentType.js';
 import FolderView from './contentView/folder/FolderView.js';
 import TextView from './contentView/text/TextView.js';
 import MessagesView from './contentView/messages/MessagesView.js';
+import MessageView from './contentView/messages/MessageView.js';
 import Piano from './contentView/piano/Piano.js';
 import CodeView from './contentView/code/CodeView.js';
 import ChordsView from './contentView/chords/ChordsView.js';
@@ -30,10 +31,14 @@ function getContentComponent (node) {
     }
     case ContentType.KEYBOARD: {
       component = <ChordsView node={node} width="500" height="200" selected={[]}/>
-      break;  
+      break;
     }
     case ContentType.CODE: {
       component = <CodeView node={node} />
+      break;
+    }
+    case ContentType.MESSAGE: {
+      component = <MessageView node={node} />
       break;
     }
     default: {
@@ -47,7 +52,7 @@ function getContentComponent (node) {
 module.exports = React.createClass({
   /**
    * Render component
-   * 
+   *
    * @return {ReactDOMComponent} component
    */
   render: function() {
@@ -58,10 +63,19 @@ module.exports = React.createClass({
     contentComponent = getContentComponent(node);
     console.log(contentComponent);
     return (
-      <div className={className}>
+      <div className={className} style={componentStyle}>
         {contentComponent}
       </div>
     );
   }
 
 });
+
+var componentStyle = {
+ display: 'flex',
+ flex: 1,
+ flexDirection: 'row',
+ justifyContent: 'flex-start', /* align items in Main Axis */
+ alignItems: 'stretch', /* align items in Cross Axis */
+ alignContent: 'stretch', /* Extra space in Cross Axis */
+}

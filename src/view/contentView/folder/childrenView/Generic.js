@@ -15,13 +15,13 @@ function getIcon (node) {
 module.exports = React.createClass({
   /**
    *
-   * @return {ReactComponent} 
+   * @return {ReactComponent}
    */
   render: function() {
     var node, className, icon;
 
     node = this.props.node;
-    className = "node node-" + ContentType.getClassName(node.contentType); 
+    className = "node node-" + ContentType.getClassName(node.contentType);
     icon = getIcon(node);
 
     return (

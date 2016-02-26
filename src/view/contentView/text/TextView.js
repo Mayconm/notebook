@@ -3,11 +3,13 @@ import TinyMCE from 'react-tinymce';
 
 var editorConfig = {
   plugins: [
-      "advlist autolink lists link image charmap print preview hr anchor pagebreak",
+      "autoresize advlist autolink lists link image charmap print preview hr anchor pagebreak",
       "searchreplace wordcount visualblocks visualchars code fullscreen",
       "insertdatetime media nonbreaking save table contextmenu directionality",
       "emoticons template paste textcolor colorpicker textpattern"
   ],
+  width: '100%',
+  autoresize_min_height: 400,
   menubar: false,
   statusbar: false,
   toolbar: 'code undo redo | styleselect | bold italic | media  forecolor backcolor | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image'
@@ -16,13 +18,13 @@ var editorConfig = {
 module.exports = React.createClass({
   /**
    * Render component
-   * 
+   *
    * @return {ReactDOMComponent} component
    */
   render: function() {
     var node = this.props.node;
-    
-    console.log(node.content);
+
+    //console.log(node.content);
 
     return (
       <TinyMCE

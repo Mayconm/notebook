@@ -1,7 +1,7 @@
 var NodeDAO = require("./NodeDAO.js");
 var ObserverList = require("./ObserverList.js");
 /**
- * 
+ *
  * @constructor
  */
 function NodeModel() {
@@ -9,7 +9,7 @@ function NodeModel() {
 }
 /**
  * Load a node by id
- * 
+ *
  * @param {ObjectId} id
  * @param {Function} callback
  */
@@ -23,7 +23,7 @@ NodeModel.prototype.loadNode = function (id, callback) {
 };
 /**
  * Load a node by id
- * 
+ *
  * @param {ObjectId} id
  * @param {Function} callback
  */
@@ -40,7 +40,7 @@ NodeModel.prototype.setNode = function (node, callback) {
 };
 /**
  * Save a node
- * 
+ *
  * @param {Object} p
  */
 NodeModel.prototype.save = function (p) {
@@ -49,34 +49,43 @@ NodeModel.prototype.save = function (p) {
     }
     console.log("========== save ===========");
     console.log(p);
-    
-     if(p.title)
-        this.node.title = p.title;
+
+    if(p.title)
+      this.node.title = p.title;
     if(p.content)
-        this.node.content = p.content;
+      this.node.content = p.content;
     if(p.metaData) {
-        this.node.metaData = p.metaData;
+      this.node.metaData = p.metaData;
     }
     this.observers.notify("node.updated", this.node);
-    //
+
     NodeDAO.save(this.node);
+    console.log(this.node);
+};
+
+NodeModel.prototype.saveRaw = function (node) {
+  NodeDAO.save(node);
 };
 /**
  * Create a new node
- * 
+ *
  * @param {Function} callback
  */
-NodeModel.prototype.newNode = function (contentType, callback, content) {
+NodeModel.prototype.newNode = function (contentType, callback, content, categories) {
     var newNode = {};
-    
+    var model = this;
     newNode.parents = [];
     newNode.parents.push(this.node._id);
     newNode.contentType = parseInt(contentType);
-    if(content){
+    newNode.categories = categories;
+    if (content) {
         newNode.content = content;
     }
     //
     NodeDAO.create(newNode, function (node) {
+        model.node.children.push(node);
+        NodeDAO.save(model.node);
+        model.observers.notify("node.updated", model.node);
         if (callback) {
             callback(node);
         }
@@ -84,7 +93,7 @@ NodeModel.prototype.newNode = function (contentType, callback, content) {
 };
 /**
  * Remove current node
- * 
+ *
  * @param {Function} callback
  */
 NodeModel.prototype.remove = function (callback) {
@@ -94,10 +103,10 @@ NodeModel.prototype.remove = function (callback) {
     });
 };
 /**
- * 
+ *
  * @param {String} property
  * @param {Object} value
- * 
+ *
  */
 NodeModel.prototype.setProperty = function (property, value) {
     this.node[property] = value;
@@ -109,7 +118,7 @@ NodeModel.prototype.setProperty = function (property, value) {
 };
 
 /**
- * 
+ *
  * @deprecated
  * @returns {Object}
  */
@@ -126,7 +135,7 @@ NodeModel.prototype.search = function (query) {
     NodeDAO.search(query, function (results) {
         //console.log(node);
         var node = {
-            contentType: 0, 
+            contentType: 0,
             children: results,
             parents: []
         }

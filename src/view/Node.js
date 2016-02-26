@@ -2,6 +2,11 @@ var React = require('react');
 var ContentView = require('./ContentView.js');
 var Model = require("../model/NodeModel.js");
 var ActionBar = require("./ActionBar.js");
+var NodeTitle = require("./NodeTitle.js");
+
+var style = {
+  height: '100%'
+};
 
 var Node = React.createClass({
 
@@ -18,12 +23,14 @@ var Node = React.createClass({
       return <div>Loading</div>
     }
 
+    console.log("Render node");
+    console.log(node);
     return (
-      
-      <div id="nodeView">
+
+      <div id="nodeView" style={style}>
         <ActionBar node={node}/>
-        <h1>{node.title}</h1>
-        <ContentView node={node} />
+        <NodeTitle node={node}/>
+        <ContentView node={node}/>
       </div>
     );
   },
@@ -41,7 +48,7 @@ var Node = React.createClass({
    *
    */
   componentDidUpdate: function () {
-    
+
   },
 
   /**
@@ -66,6 +73,5 @@ var Node = React.createClass({
   }
 
 });
-
 
 module.exports = Node;

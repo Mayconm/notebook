@@ -8,10 +8,11 @@ var ContentType = {
     TEXTCARD: 6,
     LINK: 7,
     MESSAGES: 8,
-    KEYBOARD: 9
+    MESSAGE: 9,
+    KEYBOARD: 10
 };
-var icons = ['folder', 'file-text-o', 'play', 'youtube', 'code', 'picture-o', 'file-text-o', 'external-link', "comment", "music"];
-var className = ['Folder', 'Text', 'Spotify', 'Video', 'Code', 'Picture', 'TextCard', 'Link', 'Messages', 'Keyboard'];
+var icons = ['folder', 'file-text-o', 'play', 'youtube', 'code', 'picture-o', 'file-text-o', 'external-link', "comment", "text", "music"];
+var className = ['Folder', 'Text', 'Spotify', 'Video', 'Code', 'Picture', 'TextCard', 'Link', 'Messages', 'Message', 'Keyboard'];
 
 ContentType.getIcon = function(contentType) {
   return icons[contentType];
